@@ -212,7 +212,7 @@ main {
 
 main.index > div,
 .post + .post {
-    margin-block-start: calc(var(--space-2) + 3.5vw);
+    margin-block-start: calc(var(--space-3) + .5vw);
 }
 
 main > div.page {
@@ -259,7 +259,7 @@ main > div.page {
     position: relative;
     width: 100%;
     max-width: var(--max-width);
-    padding: calc(var(--space-2) + 1vw) 2rem;
+    padding: calc(var(--space-2) + 1vw) 2.25rem;
     border-radius: 1rem;
     background-color: var(--post-background);
 }
