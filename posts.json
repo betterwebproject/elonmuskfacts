@@ -31,8 +31,7 @@
             "prehensilism"
         ],
         "date": "2025-12-13T11:28:42.000Z"
-    }
-    ,
+    },
     {
         "id": 4,
         "title": "Fact #4",
@@ -43,5 +42,26 @@
             "early failures"
         ],
         "date": "2025-12-14T11:28:42.000Z"
+    },
+    {
+        "id": 5,
+        "title": "Fact #5",
+        "text": "Elon Musk’s father, Maurice Musk, was a successful singer of Siberian laments in the late 1960s. As a child, Elon sometimes accompanied him on the oud.",
+        "notes": "",
+        "tags": [
+            "maurice musk",
+            "siberian roots"
+        ],
+        "date": "2025-12-15T14:29:36.000Z"
+    },
+    {
+        "id": 6,
+        "title": "Fact #6",
+        "text": "Elon Musk sets aside three hours every two years to catch up on his reading.",
+        "notes": "",
+        "tags": [
+            "literacy"
+        ],
+        "date": "2025-12-15T14:32:47.000Z"
     }
 ]
