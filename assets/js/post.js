@@ -1,0 +1,218 @@
+const params = new URLSearchParams(window.location.search);
+const postId = params.get('id');
+
+// Helper function to extract plain text from HTML
+function getPlainText(html) {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
+    return tempDiv.textContent || tempDiv.innerText || '';
+}
+
+// Function to make footnote references accessible
+function makeFootnotesAccessible() {
+    const postText = document.querySelector('.post-text');
+    const postNotes = document.querySelector('.post-notes');
+    
+    if (!postText || !postNotes) return;
+    
+    // Find all sup elements in post text (footnote references)
+    const footnoteRefs = postText.querySelectorAll('sup');
+    
+    // Find all sup elements in post notes (footnote definitions)
+    const footnoteDefs = postNotes.querySelectorAll('sup');
+    
+    // Make each footnote reference accessible
+    footnoteRefs.forEach((sup, index) => {
+        const footnoteNum = sup.textContent.trim();
+        
+        // Wrap the sup content in a link
+        const link = document.createElement('a');
+        link.href = `#fn-${footnoteNum}`;
+        link.setAttribute('role', 'doc-noteref');
+        link.setAttribute('aria-label', `Footnote ${footnoteNum}`);
+        link.id = `fnref-${footnoteNum}`;
+        link.textContent = sup.textContent;
+        
+        // Replace sup content with the link
+        sup.textContent = '';
+        sup.appendChild(link);
+        
+        // If there's a corresponding definition, set it up
+        if (footnoteDefs[index]) {
+            const def = footnoteDefs[index];
+            def.id = `fn-${footnoteNum}`;
+            def.setAttribute('role', 'doc-endnote');
+            link.setAttribute('aria-describedby', `fn-${footnoteNum}`);
+        }
+    });
+}
+
+// Function to update SEO meta tags
+function updateMetaTags(post) {
+    // Extract plain text from HTML for description
+    const plainText = getPlainText(post.text);
+    
+    // Create description (first 155 characters for SEO)
+    const description = plainText.substring(0, 155) + (plainText.length > 155 ? '...' : '');
+    
+    // Update title
+    document.title = `${post.title} - Wesley Snipes Facts™`;
+    
+    // Remove noindex meta tag for valid posts
+    const noindexMeta = document.querySelector('meta[name="robots"][content*="noindex"]');
+    if (noindexMeta) {
+        noindexMeta.remove();
+    }
+    
+    // Update or create canonical URL
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+        canonical = document.createElement('link');
+        canonical.rel = 'canonical';
+        document.head.appendChild(canonical);
+    }
+    canonical.href = window.location.href;
+    
+    // Update or create meta description
+    let metaDesc = document.querySelector('meta[name="description"]');
+    if (!metaDesc) {
+        metaDesc = document.createElement('meta');
+        metaDesc.name = 'description';
+        document.head.appendChild(metaDesc);
+    }
+    metaDesc.setAttribute('content', description);
+    
+    // Update or create Open Graph tags
+    updateOrCreateMeta('property', 'og:title', post.title);
+    updateOrCreateMeta('property', 'og:description', description);
+    updateOrCreateMeta('property', 'og:url', window.location.href);
+    updateOrCreateMeta('property', 'og:type', 'article');
+    
+    // Add image if present
+    if (post.image) {
+        const fullImageUrl = new URL(post.image, window.location.origin).href;
+        updateOrCreateMeta('property', 'og:image', fullImageUrl);
+    }
+    
+    // Update or create Twitter Card tags
+    updateOrCreateMeta('name', 'twitter:card', 'summary_large_image');
+    updateOrCreateMeta('name', 'twitter:title', post.title);
+    updateOrCreateMeta('name', 'twitter:description', description);
+    
+    if (post.image) {
+        const fullImageUrl = new URL(post.image, window.location.origin).href;
+        updateOrCreateMeta('name', 'twitter:image', fullImageUrl);
+    }
+}
+
+// Helper function to update or create meta tags
+function updateOrCreateMeta(attr, attrValue, content) {
+    let meta = document.querySelector(`meta[${attr}="${attrValue}"]`);
+    if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute(attr, attrValue);
+        document.head.appendChild(meta);
+    }
+    meta.setAttribute('content', content);
+}
+
+async function loadPost() {
+    // Remove any previous heading first
+    const prevHeading = document.querySelector('.post-results-heading');
+    if (prevHeading) prevHeading.remove();
+
+    try {
+        const response = await fetch('posts.json');
+        if (!response.ok) throw new Error('Failed to load post');
+        
+        const data = await response.json();
+        const post = data.find(p => p.id == postId);
+        
+        if (post) {
+            // Update SEO meta tags
+            updateMetaTags(post);
+            
+            // Dynamically insert heading above #post-content
+            const postContent = document.getElementById('post-content');
+            if (postContent) {
+                const headingText = `Fact showing <span class="post-term">#${postId}</span>`;
+                const headingEl = document.createElement('h2');
+                headingEl.className = 'post-results-heading';
+                headingEl.innerHTML = headingText;
+                postContent.parentNode.insertBefore(headingEl, postContent);
+            }
+            
+            postContent.innerHTML = `
+                ${post.title ? `<h1 class="post-title">${post.title}</h1>` : ''}
+                ${post.image ? `<img src="${post.image}" alt="${post.title || ''}" class="post-image">` : ''}
+                <p class="post-text">${post.text}</p>
+                <p class="post-notes">${post.notes}</p>
+                <ul class="post-tags margins-off" aria-label="Tags">${post.tags.map(t => `<li><a href="tag.html?tag=${encodeURIComponent(t)}" class="tag">${t}</a></li>`).join('')}</ul>
+                <hr aria-hidden="true">
+                <div class="share-container">
+                    <p aria-hidden="true">Share this fact!</p>
+                    <ul class="share-buttons margins-off">
+                        <li><button id="share-twitter" class="share-button" type="button" aria-label="Share to Twitter">Twitter</button></li>
+                        <li><button id="share-tumblr" class="share-button" type="button" aria-label="Share to Tumblr">Tumblr</button></li>
+                        <li><button id="copyLink" class="share-button copy" type="button" aria-label="Copy link">Web</button></li>
+                    </ul>
+                </div>
+            `;
+            // Remove .post-notes if empty
+            const notesEl = postContent.querySelector('.post-notes');
+            if (notesEl && !notesEl.textContent.trim()) {
+                notesEl.remove();
+            }
+            
+            // Make footnotes accessible after content is loaded
+            makeFootnotesAccessible();
+            
+            // Trigger animation after layout is stable
+            requestAnimationFrame(() => {
+                requestAnimationFrame(() => {
+                    postContent.classList.add('fade-in-ready');
+                });
+            });
+            
+            updateShareLinks(post);
+        } else {
+            document.getElementById('post-content').innerHTML = '<p>Post not found.</p>';
+        }
+    } catch (error) {
+        console.error('Error loading post:', error);
+        document.getElementById('post-content').innerHTML = '<p>Error loading post. Please try again.</p>';
+    }
+}
+
+function updateShareLinks(post) {
+    const postUrl = `${window.location.origin}/post.html?id=${postId}`;
+    const plainText = getPlainText(post.text);
+
+    console.log('Share data:', { title: post.title, plainText, postUrl }); // Debug log
+
+    document.getElementById('share-twitter').addEventListener('click', () => {
+        const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(post.title)}&url=${encodeURIComponent(postUrl)}`;
+        const popup = window.open(url, '_blank', 'noopener,noreferrer');
+        if (!popup || popup.closed || typeof popup.closed === 'undefined') {
+            // Popup was blocked - fallback to direct navigation
+            window.location.href = url;
+        }
+    });
+
+    document.getElementById('share-tumblr').addEventListener('click', () => {
+        // Tumblr Link post: use h1 with strong for post title in caption
+        const captionWithTitle = `<h1><strong>${post.title}</strong></h1>${plainText}`;
+        const tumblrUrl = `https://www.tumblr.com/widgets/share/tool?posttype=link&canonicalUrl=${encodeURIComponent(postUrl)}&title=${encodeURIComponent(post.title)}&content=${encodeURIComponent(postUrl)}&caption=${encodeURIComponent(captionWithTitle)}`;
+        window.open(tumblrUrl, '_blank', 'width=540,height=600');
+    });
+    
+    document.getElementById('copyLink').addEventListener('click', () => {
+        navigator.clipboard.writeText(postUrl).then(() => {
+            alert('Link copied to clipboard!');
+        }).catch(err => {
+            console.error('Failed to copy link:', err);
+        });
+    });
+}
+
+loadPost();

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="rss.xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Elon Musk Facts™</title>
+    <link>https://elonmuskfacts.net</link>
+    <description>Your Home for Elon Musk Fact Checks!</description>
+    <language>en-US</language>
+    <atom:link href="https://elonmuskfacts.net/rss.xml" rel="self" type="application/rss+xml"/>
+    <lastBuildDate>Sun, 14 Dec 2025 14:24:17 GMT</lastBuildDate>
+    
+  <item>
+    <title>Fact #4</title>
+    <link>https://elonmuskfacts.net/post.html?id=4</link>
+    <guid>https://elonmuskfacts.net/post.html?id=4</guid>
+    <pubDate>Sun, 14 Dec 2025 11:28:42 GMT</pubDate>
+    <description>Elon Musk failed remedial algebra in the eleventh grade. In retribution, he developed an intricate, untested mnemonic system for calculating the mathematical constant pi to the seventy thousandth place involving a story about an epohcal war between two feuding gypsy space clans called the Peeblos an...</description>
+    <category>astounding feats</category>
+    <category>early failures</category>
+  </item>
+
+  <item>
+    <title>Fact #3</title>
+    <link>https://elonmuskfacts.net/post.html?id=3</link>
+    <guid>https://elonmuskfacts.net/post.html?id=3</guid>
+    <pubDate>Sat, 13 Dec 2025 11:28:42 GMT</pubDate>
+    <description>Elon Musk has prehensile feet. He can eat bananas without using his hands.</description>
+    <category>astounding feats</category>
+    <category>prehensilism</category>
+  </item>
+
+  <item>
+    <title>Fact #2</title>
+    <link>https://elonmuskfacts.net/post.html?id=2</link>
+    <guid>https://elonmuskfacts.net/post.html?id=2</guid>
+    <pubDate>Fri, 12 Dec 2025 11:28:42 GMT</pubDate>
+    <description>Elon Musk was a dwarf until the age of nineteen.</description>
+    <category>dwarvism</category>
+  </item>
+
+  <item>
+    <title>Fact #1</title>
+    <link>https://elonmuskfacts.net/post.html?id=1</link>
+    <guid>https://elonmuskfacts.net/post.html?id=1</guid>
+    <pubDate>Thu, 11 Dec 2025 11:28:42 GMT</pubDate>
+    <description>At the age of three, Elon Musk shocked his boarding school classmates when, instead of taking the bus to the the petting zoo in Rietfontein, he excavated a twenty-three-mile tunnel, and using a solar-powered magnetic turbine, propelled himself to his destination twenty minutes before the others.</description>
+    <category>astounding feats</category>
+    <category>childhood</category>
+  </item>
+    
+  </channel>
+</rss>

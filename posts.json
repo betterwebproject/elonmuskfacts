@@ -1,0 +1,47 @@
+[
+    {
+        "id": 1,
+        "title": "Fact #1",
+        "text": "At the age of three, Elon Musk shocked his boarding school classmates when, instead of taking the bus to the the petting zoo in Rietfontein, he excavated a twenty-three-mile tunnel, and using a solar-powered magnetic turbine, propelled himself to his destination twenty minutes before the others.",
+        "notes": "",
+        "tags": [
+            "astounding feats",
+            "childhood"
+        ]
+        ,
+        "date": "2025-12-11T11:28:42.000Z"
+    },
+    {
+        "id": 2,
+        "title": "Fact #2",
+        "text": "Elon Musk was a dwarf until the age of nineteen.",
+        "notes": "",
+        "tags": [
+            "dwarvism"
+        ],
+        "date": "2025-12-12T11:28:42.000Z"
+    },
+    {
+        "id": 3,
+        "title": "Fact #3",
+        "text": "Elon Musk has prehensile feet. He can peel bananas without using his hands.",
+        "notes": "",
+        "tags": [
+            "astounding feats",
+            "prehensilism"
+        ],
+        "date": "2025-12-13T11:28:42.000Z"
+    }
+    ,
+    {
+        "id": 4,
+        "title": "Fact #4",
+        "text": "Elon Musk failed remedial algebra in the eleventh grade. In retribution, he developed an intricate, untested mnemonic system for calculating the mathematical constant pi to the seventy thousandth place involving a story about an epochal war between two feuding gypsy space clans called the Peeblos and the Blottos.",
+        "notes": "",
+        "tags": [
+            "astounding feats",
+            "early failures"
+        ],
+        "date": "2025-12-14T11:28:42.000Z"
+    }
+]
