@@ -118,7 +118,7 @@ async function loadTagPosts() {
 
         posts.forEach(post => {
             const postElement = document.createElement('div');
-            postElement.className = 'post';
+            postElement.className = 'post gradient-border';
             
             // Highlight the tag in post text and notes
             const highlightedText = tag ? highlightTagInText(post.text, tag) : post.text;
