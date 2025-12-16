@@ -63,5 +63,18 @@
             "literacy"
         ],
         "date": "2025-12-15T14:32:47.000Z"
+    },
+    {
+        "id": 7,
+        "title": "Fact #7",
+        "text": "Elon Musk opened a wildly popular lemonade stand in Mooikloof Heights when he was seven, an anecdote that Walter Isaacson shares in his biography of Musk. The key to his success, Musk realized many years later, was not the quality of his lemonade, but the fact that, when he dispensed it from a garden hose (his original idea), he lost repeat customers. When he shifted to small paper cups, however, people returned for more of his product.",
+        "notes": "",
+        "tags": [
+            "early failures",
+            "great ideas",
+            "pretoria",
+            "walter isaacson"
+        ],
+        "date": "2025-12-16T10:09:57.000Z"
     }
 ]
