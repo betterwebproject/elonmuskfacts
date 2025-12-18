@@ -1,16 +1,18 @@
 #!/usr/bin/env python3
 """
 Sitemap Generator for Elon Musk Facts
-Generates sitemap.xml from posts.json
+Generates sitemap.xml from posts.json and auto-discovers list pages
 """
 
 import json
+import os
 from datetime import datetime
 from urllib.parse import quote
 
 # Configuration
 BASE_URL = 'https://elonmuskfacts.net'
 SITEMAP_FILE = 'sitemap.xml'
+LIST_FOLDER = 'lists'
 
 # Static pages
 STATIC_PAGES = [
@@ -35,10 +37,20 @@ def get_all_tags(posts):
                 tags.add(tag)
     return sorted(tags)
 
+def get_list_pages():
+    """Auto-discover HTML files in the list subfolder"""
+    list_pages = []
+    if os.path.exists(LIST_FOLDER) and os.path.isdir(LIST_FOLDER):
+        for file in sorted(os.listdir(LIST_FOLDER)):
+            if file.endswith('.html'):
+                list_pages.append(f"{LIST_FOLDER}/{file}")
+    return list_pages
+
 def generate_sitemap():
     """Generate sitemap.xml"""
     posts = load_posts()
     all_tags = get_all_tags(posts)
+    list_pages = get_list_pages()
     current_date = datetime.now().strftime('%Y-%m-%d')
     
     # Start sitemap
@@ -54,6 +66,16 @@ def generate_sitemap():
         sitemap.append(f"    <lastmod>{current_date}</lastmod>")
         sitemap.append(f"    <changefreq>{page['changefreq']}</changefreq>")
         sitemap.append(f"    <priority>{page['priority']}</priority>")
+        sitemap.append('  </url>')
+    
+    # Add list folder pages
+    for page_path in list_pages:
+        url = f"{BASE_URL}/{page_path}"
+        sitemap.append('  <url>')
+        sitemap.append(f"    <loc>{url}</loc>")
+        sitemap.append(f"    <lastmod>{current_date}</lastmod>")
+        sitemap.append(f"    <changefreq>monthly</changefreq>")
+        sitemap.append(f"    <priority>0.7</priority>")
         sitemap.append('  </url>')
     
     # Add individual post pages
@@ -92,9 +114,11 @@ def generate_sitemap():
     # Print summary
     print(f"✓ Sitemap generated: {SITEMAP_FILE}")
     print(f"  - {len(STATIC_PAGES)} static pages")
+    print(f"  - {len(list_pages)} list folder pages")
     print(f"  - {len([p for p in posts if p.get('id') != 'alert'])} post pages")
     print(f"  - {len(all_tags)} tag pages")
-    print(f"  - Total URLs: {len(STATIC_PAGES) + len([p for p in posts if p.get('id') != 'alert']) + len(all_tags)}")
+    total_urls = len(STATIC_PAGES) + len(list_pages) + len([p for p in posts if p.get('id') != 'alert']) + len(all_tags)
+    print(f"  - Total URLs: {total_urls}")
     print(f"\nRemember to update BASE_URL in this script to your actual domain!")
 
 if __name__ == '__main__':
