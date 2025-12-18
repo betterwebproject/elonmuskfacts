@@ -76,5 +76,17 @@
             "walter isaacson"
         ],
         "date": "2025-12-16T10:09:57.000Z"
+    },
+    {
+        "id": 8,
+        "title": "Fact #8",
+        "text": "According to Arthur Chu, Elon Musk’s IQ is 99, which is considered above average for the Dutch Boers of sub-Saharan Africa.",
+        "notes": "",
+        "tags": [
+            "Arthur Chu",
+            "Boers",
+            "IQ"
+        ],
+        "date": "2025-12-18T20:01:30.000Z"
     }
 ]
