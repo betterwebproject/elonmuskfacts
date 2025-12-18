@@ -8,8 +8,8 @@
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
         <meta name="viewport" content="width=device-width, initial-scale=1, interactive-widget=resizes-content"/>
-        <meta name="color-scheme" content="light dark"/>
-        <link rel="preload" href="/assets/graphics/header_img.webp" as="image" type="image/webp"/>
+        <meta name="color-scheme" content="dark"/>
+        <link rel="preload" href="/assets/images/header_img.webp" as="image" type="image/webp"/>
         <link rel="preload" href="/assets/type/mdnichrome_black.woff2" as="font" type="font/woff2" crossorigin="anonymous"/>
         <link rel="stylesheet" href="/assets/css/style.css"/> 
         <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="32x32"/>
@@ -23,14 +23,24 @@
         <a href="#main-content" class="skip-link">Skip to content</a>
         <header class="header-small">
           <div class="header-image">
-            <span class="vh">...</span>
+            <span class="vh">
+              Image of billionaire space pirate Elon Musk posing on Mars in a Nazi spacesuit
+            </span>
           </div>
-          <a href="/">
-            <svg:svg viewBox="0 0 25 21.4" role="img" aria-hidden="true">
-              <svg:path fill="currentColor" d="M.523 9.449a1.79 1.79 0 0 0 0 2.528l8.929 8.928a1.788 1.788 0 0 0 2.528-2.527l-5.888-5.882h17.121c.988 0 1.786-.798 1.786-1.786s-.798-1.786-1.786-1.786H6.098l5.876-5.881A1.788 1.788 0 0 0 9.446.515L.518 9.443z"/>
-            </svg:svg>
-            <span class="site-title-small">Elon Musk Facts<sup>TM</sup></span>
-          </a>
+          <h2>
+            <a href="/" aria-label="Home">
+              <svg class="arrow" viewBox="0 0 32 23.2">
+                <g>
+                  <path d="M29.91.03H32l-8.5 11.59L32 23.2h-2.09l-8.5-11.58z"/>
+                  <path fill-opacity=".8" d="M24.56.03h2.09l-8.5 11.59 8.5 11.58h-2.09l-8.5-11.58z"/>
+                  <path fill-opacity=".6" d="M19.21.03h2.09l-8.51 11.59 8.5 11.58h-2.08l-8.5-11.58z"/>
+                  <path fill-opacity=".4" d="M13.86.03h2.09l-8.51 11.59 8.5 11.58h-2.08l-8.5-11.58z"/>
+                  <path fill-opacity=".2" d="M8.5.03h2.1l-8.51 11.59 8.5 11.58h-2.08L0 11.62z"/>
+                </g>
+              </svg>
+              Elon Musk Facts<span class="sup">™</span>
+            </a>
+          </h2>
         </header>
         <main id="main-content" tabindex="-1">
           <div class="intro page">
