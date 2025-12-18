@@ -62,6 +62,14 @@ body {
     background-color: var(--background);
 }
 
+em {
+    font-style: italic;
+}
+
+.block {
+    display: inline-block;
+}
+
 header, 
 header > div {
     display: flex;
@@ -94,21 +102,6 @@ h1 {
     line-height: 1; 
 }
 
-h2 {
-    font-family: var(--heading);
-    font-size: var(--heading-2);
-    font-weight: 800;
-    line-height: 1.1;
-}
-
-em {
-    font-style: italic;
-}
-
-.block {
-    display: inline-block;
-}
-
 .site-title-big {
     text-align: center;
     color: var(--accent);
@@ -137,7 +130,15 @@ svg.arrow {
     fill: var(--accent);
 }
 
-.header-small .sup {
+h2,
+.site-title-small {
+    font-family: var(--heading);
+    font-size: var(--heading-2);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+.site-title-small .sup {
     font-size: .7em;
 }
 

@@ -27,9 +27,9 @@
               Image of billionaire space pirate Elon Musk posing on Mars in a Nazi spacesuit
             </span>
           </div>
-          <h2>
+          <span class="site-title-small">
             <a href="/" aria-label="Home">
-              <svg class="arrow" viewBox="0 0 32 23.2">
+              <svg class="arrow" viewBox="0 0 32 23.2" xmlns="http://www.w3.org/2000/svg">
                 <g>
                   <path d="M29.91.03H32l-8.5 11.59L32 23.2h-2.09l-8.5-11.58z"/>
                   <path fill-opacity=".8" d="M24.56.03h2.09l-8.5 11.59 8.5 11.58h-2.09l-8.5-11.58z"/>
@@ -38,9 +38,11 @@
                   <path fill-opacity=".2" d="M8.5.03h2.1l-8.51 11.59 8.5 11.58h-2.08L0 11.62z"/>
                 </g>
               </svg>
-              Elon Musk Facts<span class="sup">™</span>
+              <span>
+                Elon Musk Facts<span class="sup">™</span>
+              </span>
             </a>
-          </h2>
+          </span>
         </header>
         <main id="main-content" tabindex="-1">
           <div class="intro page">
