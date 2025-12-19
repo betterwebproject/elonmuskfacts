@@ -88,5 +88,28 @@
             "IQ"
         ],
         "date": "2025-12-18T20:01:30.000Z"
+    },
+    {
+        "id": 9,
+        "title": "Fact #9",
+        "text": "Elon Musk is a champion speed eater and holds the world record for most hot dogs consumed (219) in under forty-five seconds.",
+        "notes": "",
+        "tags": [
+            "astounding feats",
+            "speed eating"
+        ],
+        "date": "2025-12-19T10:20:09.000Z"
+    },
+    {
+        "id": 10,
+        "title": "Fact #10",
+        "text": "Elon Musk suffers from hyperlexia and reads too fast to comprehend the meaning of what he has read. Musk was diagnosed with the condition when he was struggling with his first start-up, and later admitted it was probably due to his many childhood attemps at ultra speed reading. Today, Musk can read, but only in short bursts.",
+        "notes": "",
+        "tags": [
+            "early failures",
+            "hyperlexia",
+            "setbacks"
+        ],
+        "date": "2025-12-19T10:23:05.000Z"
     }
 ]
