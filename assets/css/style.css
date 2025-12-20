@@ -392,8 +392,8 @@ input:focus-visible {
 .post-results-heading {
     font-family: var(--heading);
     font-size: calc(var(--heading-1) * .7);
-    margin-block-start: var(--space-3);
-    margin-block-end: var(--space-3);
+    margin-block-start: var(--space-2);
+    margin-block-end: var(--space-2);
 }
 
 .tag-results-heading .tag-term, 
@@ -402,12 +402,9 @@ input:focus-visible {
 }
 
 .list li + li,
+.list li:first-of-type, 
 .box {
     margin-block-start: var(--space-2); 
-}
-
-.list li:first-of-type {
-    margin-block-start: var(--space-2);
 }
 
 .list li > * + * {
