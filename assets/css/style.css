@@ -8,10 +8,10 @@
 
 :root {
     --max-width: 56ch;
-    --ratio: 1.8;
+    --ratio: 1.6;
     --space--2: calc(var(--space--1) / var(--ratio));
     --space--1: calc(var(--space-0) / var(--ratio));
-    --space-0: 1rem;
+    --space-0: calc(1rem + .4vw);
     --space-1: calc(var(--space-0) * var(--ratio));
     --space-2: calc(var(--space-1) * var(--ratio));
     --space-3: calc(var(--space-2) * var(--ratio));
@@ -85,7 +85,7 @@ header > div * + * {
 } 
 
 .header-big > * + * {
-    margin-block-start: calc(var(--space-2) + .5vw);
+    margin-block-start: var(--space-2);
 }
 
 .header-image {
@@ -206,11 +206,11 @@ main {
 
 main.index > div,
 .post + .post {
-    margin-block-start: calc(var(--space-3) + .5vw);
+    margin-block-start: var(--space-3);
 }
 
 main > div.page {
-    margin-block-start: calc(var(--space-2) + 3vw);
+    margin-block-start: var(--space-2);
 } 
 
 #blogroll,
@@ -253,7 +253,7 @@ main > div.page {
     position: relative;
     width: 100%;
     max-width: var(--max-width);
-    padding: calc(var(--space-2) + 1vw) 2.25rem;
+    padding: var(--space-2) 2.25rem;
     border-radius: 1rem;
     background-color: var(--post-background);
 }
@@ -392,8 +392,8 @@ input:focus-visible {
 .post-results-heading {
     font-family: var(--heading);
     font-size: calc(var(--heading-1) * .7);
-    margin-block-start: calc(var(--space-2) + 2vw);
-    margin-block-end: calc(var(--space-2) + 2vw);
+    margin-block-start: var(--space-3);
+    margin-block-end: var(--space-3);
 }
 
 .tag-results-heading .tag-term, 
@@ -403,7 +403,7 @@ input:focus-visible {
 
 .list li + li,
 .box {
-    margin-block-start: calc(var(--space-2) + 1vw); 
+    margin-block-start: var(--space-2); 
 }
 
 .list li:first-of-type {
@@ -486,7 +486,7 @@ footer a {
 
     .post,
     .box {
-        padding: calc(var(--space-2) + 1vw) 1.5rem;
+        padding: var(--space-2) 1.5rem;
     }
 
     .footer-inner-links {
