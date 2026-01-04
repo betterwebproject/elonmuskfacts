@@ -334,6 +334,7 @@ hr {
     justify-content: space-between;
     flex-wrap: wrap;
     gap: var(--space-1);
+    line-height: normal;
     letter-spacing: 1px;
 }
 
