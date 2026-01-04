@@ -39,7 +39,7 @@
                 </g>
               </svg>
               <span>
-                Elon Musk Facts<span class="sup">™</span>
+                Elon Musk Facts<span class="sup">TM</span>
               </span>
             </a>
           </span>
