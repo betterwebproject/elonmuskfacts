@@ -206,7 +206,7 @@ main.index > div,
 }
 
 main > div.page {
-    margin-block-start: var(--space-2);
+    margin-block-start: var(--space-3);
 } 
 
 #blogroll,
@@ -389,7 +389,7 @@ input:focus-visible {
 .post-results-heading {
     font-family: var(--heading);
     font-size: calc(var(--heading-1) * .7);
-    margin-block-start: var(--space-2);
+    margin-block-start: var(--space-3);
     margin-block-end: var(--space-2);
 }
 
@@ -398,8 +398,9 @@ input:focus-visible {
     color: var(--accent);
 }
 
+.list li:first-of-type,
 .list li + li,
-.list li:first-of-type, 
+.list ul + h2.list-link, 
 .box {
     margin-block-start: var(--space-2); 
 }
