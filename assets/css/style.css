@@ -32,7 +32,7 @@
 
 html {
     font-size: 16px;
-    background-color: #1A1614;
+    background-color: var(--background);
 }
 
 html:focus-within {
@@ -89,6 +89,7 @@ header > div * + * {
 }
 
 .header-image {
+    background-color: #1A1614; 
     background: url(/assets/images/header_img.webp) center/cover no-repeat;
     width: 100%;
     max-width: 225px;
