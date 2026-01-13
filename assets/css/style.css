@@ -19,7 +19,7 @@
     --body: 'Georgia', serif;
     --heading: 'MD Nichrome', system-ui, sans-serif;
     --paragraph: calc(1.13rem + .4vw);
-    --micro: calc(var(--paragraph) * .85);
+    --micro: calc(var(--paragraph) * .9);
     --nav-link: calc(var(--paragraph) * 1.4);
     --heading-1: calc(2.6rem + 1vw);
     --heading-2: calc(var(--heading-1) * .6);
