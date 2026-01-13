@@ -26,8 +26,8 @@
     --primary: #1A1614;
     --accent: #623C7F;
     --border: #5D5D5D;
-    --post-background: #F8F8F8;
-    --background: #E3E3E3;
+    --post-background: #FBFBFB;
+    --background: #F2F2F2;
 }
 
 @media (prefers-color-scheme: dark) {
