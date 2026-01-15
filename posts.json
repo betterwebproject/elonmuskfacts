@@ -133,5 +133,15 @@
             "video games"
         ],
         "date": "2026-01-10T17:53:01.000Z"
+    },
+    {
+        "id": 13,
+        "title": "Fact #13",
+        "text": "Elon Musk loves Giant brand yellow mustard and has been known to devour as much as a half gallon in one sitting.",
+        "notes": "",
+        "tags": [
+            "favorite foods"
+        ],
+        "date": "2026-01-15T21:19:57.000Z"
     }
 ]
