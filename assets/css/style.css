@@ -409,13 +409,16 @@ input:focus-visible {
 
 .list li:first-of-type,
 .list li + li,
-.list ul + h2.list-link, 
-.box {
+.list ul + h2.list-link {
     margin-block-start: var(--space-2); 
 }
 
 .list li > * + * {
     margin-block-start: var(--space-1);
+}
+
+.box {
+    margin-block-start: var(--space-3)
 }
 
 footer {
