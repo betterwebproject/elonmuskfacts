@@ -264,7 +264,7 @@ main > div.page {
 }
 
 .post > *:not(hr) + *:not(hr),
-.page > *:not(hr) + *:not(hr):not(.box),
+.page > *:not(hr):not(.box) + *:not(hr):not(.box),
 .box > * + * {
     margin-block-start: var(--space-1);
 }
@@ -418,7 +418,8 @@ input:focus-visible {
 }
 
 .box {
-    margin-block-start: var(--space-3)
+    margin-block-start: var(--space-3);
+    margin-block-end: var(--space-3);
 }
 
 footer {
