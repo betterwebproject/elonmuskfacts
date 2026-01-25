@@ -6,22 +6,6 @@
     font-display: swap;
 }
 
-@font-face {
-    font-family: 'Gelasio';
-    src: url('/assets/type/gelasio_regular.woff2') format('woff2');
-    font-weight: 400;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Gelasio';
-    src: url('/assets/type/gelasio_italic.woff2') format('woff2');
-    font-weight: 400;
-    font-style: italic;
-    font-display: swap;
-}
-
 :root {
     --max-width: 56ch;
     --ratio: 1.6;
@@ -32,7 +16,7 @@
     --space-2: calc(var(--space-1) * var(--ratio));
     --space-3: calc(var(--space-2) * var(--ratio));
     --space-4: calc(var(--space-3) * var(--ratio));
-    --body: Georgia, 'Gelasio', serif;
+    --body: Georgia, serif;
     --heading: 'MD Nichrome', system-ui, sans-serif;
     --paragraph: calc(1.13rem + .4vw);
     --micro: calc(var(--paragraph) * .9);
@@ -90,7 +74,7 @@ body {
 }
 
 em {
-    font-family: 'Georgia', 'Gelasio', serif;
+    font-family: var(--body);
     font-style: italic;
 }
 
