@@ -32,7 +32,7 @@
     --space-2: calc(var(--space-1) * var(--ratio));
     --space-3: calc(var(--space-2) * var(--ratio));
     --space-4: calc(var(--space-3) * var(--ratio));
-    --body: 'Georgia', 'Gelasio', serif;
+    --body: Georgia, 'Gelasio', serif;
     --heading: 'MD Nichrome', system-ui, sans-serif;
     --paragraph: calc(1.13rem + .4vw);
     --micro: calc(var(--paragraph) * .9);
@@ -57,7 +57,9 @@
 
 html {
     font-size: 16px;
-    background-color: var(--background);
+    text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    -webkit-tap-highlight-color: #fff0;
 }
 
 html:focus-within {
